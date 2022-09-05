@@ -1,42 +1,91 @@
-var sevenAM = document.getElementById("seven");
-var saveDocument = document.getElementById("saveBtn");
+var today = moment();
+$("#currentDay").text(today.format("MMMM Do, YYYY"));
+var CurrentTime = $("#currentTime").text(today.format("h:mm a"));
+var actualTime = today.hour()
+// console.log(actualTime);
+
+// Start of 7am clock
+var sevenAM = $("#seven");
+var saveDocument = $("#saveBtn1");
 var sevenTime = "Seven AM:";
-var seven = sevenAM.value;
+var seven = sevenAM.val();
+// var myTime = today.format("h:mm:ss a");
 
-sevenAM.innerHTML = localStorage.getItem(sevenTime);
+sevenAM.text(localStorage.getItem(sevenTime));
 
-saveDocument.addEventListener("click", function (event) {
-  event.preventDefault(event);
+$(saveDocument).click(function (e) { 
+  e.preventDefault(e);
   const sevenTime = "Seven AM:";
-  const seven = sevenAM.value;
+  const seven = sevenAM.val();
 
-  // console.log(time);
-  // console.log(reminder);
-
+ 
+  // console.log(sevenTime, seven);
   localStorage.setItem(sevenTime, seven);
-  location.reload();
-  sevenAM.innerHTML = localStorage.getItem(sevenTime);
+  sevenAM.text(localStorage.getItem(sevenTime));
 });
 
-// Start of 8AM
-var eightAM = document.getElementById("eight");
-var saveDocument2 = document.getElementById("saveBtn2");
-var eightTime = "Eigth AM:";
-var eight = eightAM.value;
+function itsSevenAm() {
+  if (actualTime === 7) {
+    sevenAM.css("background", "limegreen");
+  } else {
+    sevenAM.css("background", "red");
+  }
+};
+itsSevenAm();
 
-eightAM.innerText = localStorage.getItem(eightTime);
+// Start of 8am clock
+var eightAM = $("#eight");
+var saveDocument2 = $("#saveBtn3");
+var eightTime = "Eight AM:";
+var eight = eightAM.val();
+// var myTime = today.format("h:mm:ss a");
 
-saveDocument2.addEventListener("click", function (event) {
-  event.preventDefault(event);
-  var eightTime = "Eight AM:";
-  var eight = eightAM.value;
+eightAM.text(localStorage.getItem(eightTime));
 
-  // console.log(eightTime);
-  // console.log(eight);
+$(saveDocument2).click(function (e) { 
+  e.preventDefault(e);
+  const eightTime = "Eight AM:";
+  const eight = eightAM.val();
 
+ 
   localStorage.setItem(eightTime, eight);
-  // location.reload();
-
-  eightAM.innerHTML = localStorage.getItem(eightTime);
-  console.log(localStorage.getItem(eightTime));
+  eightAM.text(localStorage.getItem(eightTime));
 });
+
+function itsEightAm() {
+  if (actualTime === 8) {
+    eightAM.css("background", "limegreen");
+  } else {
+    eightAM.css("background", "red");
+  }
+};
+itsEightAm();
+
+// Start of 9am clock
+var eightAM = $("#eight");
+var saveDocument2 = $("#saveBtn3");
+var eightTime = "Eight AM:";
+var eight = eightAM.val();
+// var myTime = today.format("h:mm:ss a");
+
+eightAM.text(localStorage.getItem(eightTime));
+
+$(saveDocument2).click(function (e) { 
+  e.preventDefault(e);
+  const eightTime = "Eight AM:";
+  const eight = eightAM.val();
+
+ 
+  localStorage.setItem(eightTime, eight);
+  eightAM.text(localStorage.getItem(eightTime));
+});
+
+function itsEightAm() {
+  if (actualTime === 8) {
+    eightAM.css("background", "limegreen");
+  } else {
+    eightAM.css("background", "red");
+  }
+};
+itsEightAm();
+
